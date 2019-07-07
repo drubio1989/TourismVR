@@ -36,12 +36,6 @@ function init(bundle, parent, options = {}) {
     0 /* pitch angle */
   );
 
-  // Render your app content to the default cylinder surface
-  r360.renderToSurface(
-    r360.createRoot('MuseumPanel', { /* initial props */ }),
-    museumPanel
-  );
-
   restaurantPanel = new Surface(
     100,
     100,
@@ -51,12 +45,6 @@ function init(bundle, parent, options = {}) {
   restaurantPanel.setAngle(
     -Math.PI / 2, /* yaw angle */
     0 /* pitch angle */
-  );
-
-  // Render your app content to the default cylinder surface
-  r360.renderToSurface(
-    r360.createRoot('RestaurantPanel', { /* initial props */ }),
-    restaurantPanel
   );
 
   shoppingPanel = new Surface(
@@ -71,9 +59,21 @@ function init(bundle, parent, options = {}) {
   );
 
   r360.renderToSurface(
-    r360.createRoot('ShoppingPanel', { /* initial props */ }),
-    shoppingPanel
+    r360.createRoot('InfoPanel', { id: 'museum' }),
+    museumPanel,
   );
+
+  // Render your app content to the default cylinder surface
+  r360.renderToSurface(
+    r360.createRoot('InfoPanel', { id: 'restaurant' }),
+    restaurantPanel,
+  );
+
+  r360.renderToSurface(
+    r360.createRoot('InfoPanel', { id: 'shopping' }),
+    shoppingPanel,
+  );
+
 
   // Load the initial environment
   r360.compositor.setBackground(r360.getAssetURL('gdansk.jpg'));
@@ -84,15 +84,13 @@ class surfaceModule extends Module {
     super('surfaceModule');
   }
 
-  resizeSurface(width, height, info) {
-    if (info === 'museum') {
-      museumPanel.resize(width, height)
-    } else if (info === 'restaurant') {
-      restaurantPanel.resize(width, height)
-    } else if (info === 'shopping') {
-      shoppingPanel.resize(width, height)
-    } else {
-
+  resizeSurface(width, height, id) {
+    if (id === 'museum') {
+      museumPanel.resize(width, height);
+    } else if (id === 'restaurant') {
+      restaurantPanel.resize(width, height);
+    } else if (id === 'shopping') {
+      shoppingPanel.resize(width, height);
     }
   }
 }
