@@ -56,7 +56,7 @@ class InfoPanel extends React.Component {
         <Image source={asset(`${img.name}`)} style={{width: img.width, height: img.height}} />
         <View style={styles.attractionBox}>
           <Text style={styles.attractionText}>
-            {this.props.id}
+            {this.props.text}
           </Text>
         </View>
       </View>
@@ -65,14 +65,13 @@ class InfoPanel extends React.Component {
 };
 
 
-
-export default class SurfaceProject extends React.Component {
+export default class AdvancedSurfaceVR extends React.Component {
   render() {
     return (
-      <View style={styles.panel}>
-        <Image source={asset('poland.png')} style={styles.img} />
+      <View>
+        <Image source={asset('poland.png')} style={{width: 500, height: 300}} />
         <View style={styles.attractionBox}>
-          <VrButton>
+          <VrButton onClick={() => surfaceModule.start()}>
             <Text style={styles.attractionText}>
               Welcome to Beautiful Gdansk, Poland! Click Here!
             </Text>
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
   displayPanel: {
     width: 100,
     height: 100,
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   attractionBox: {
     padding: 20,
@@ -102,5 +101,5 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('SurfaceProject', () => SurfaceProject);
+AppRegistry.registerComponent('AdvancedSurfaceVR', () => AdvancedSurfaceVR);
 AppRegistry.registerComponent('InfoPanel', () => InfoPanel);
