@@ -20,7 +20,7 @@ function init(bundle, parent, options = {}) {
   );
 
   introRoot = r360.renderToSurface(
-    r360.createRoot('AdvancedSurfaceVR', { /* initial props */ }),
+    r360.createRoot('TourismVR', { /* initial props */ }),
     introPanel
   );
 

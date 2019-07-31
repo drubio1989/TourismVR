@@ -65,7 +65,7 @@ class InfoPanel extends React.Component {
 };
 
 
-export default class AdvancedSurfaceVR extends React.Component {
+export default class TourismVR extends React.Component {
   render() {
     return (
       <View>
@@ -101,5 +101,5 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('AdvancedSurfaceVR', () => AdvancedSurfaceVR);
+AppRegistry.registerComponent('TourismVR', () => TourismVR);
 AppRegistry.registerComponent('InfoPanel', () => InfoPanel);
