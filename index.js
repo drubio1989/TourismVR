@@ -51,6 +51,7 @@ class InfoPanel extends React.Component {
 
     return (
       <View style={styles.displayPanel}
+            hitSlop={20}
             onEnter={() => this.transformDisplay(this.props.id)}
             onExit={() => this.resetPanel(this.props.id)}>
         <Image source={asset(`${img.name}`)} style={{width: img.width, height: img.height}} />
